@@ -22,7 +22,8 @@ export default {
       },
       fontFamily: {
         main: ['League Spartan']
-      }
+      },
+
     },
   },
   plugins: [],
