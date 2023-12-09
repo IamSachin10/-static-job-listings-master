@@ -1,17 +1,25 @@
 import { useState } from "react";
-import jsonData from "../data.json";
-// import JobListing from "./components/JobListing";
-import Photosnap from "./components/Photosnap";
-function App() {
-  const [data, setData] = useState(jsonData);
+import JobListing from "./components/JobListing";
+import data from '../data.json'
 
+function App(){
+  const [jobs, setJobs] = useState(data)
+  const filter = (job) => {
+    if(job === ""){
+      setJobs(data)
+    } else {
+      const filterJobs = data.filter((newJob) => newJob.languages.includes(job))
+      setJobs(filterJobs)
+    }
+  }
   return (
     <div>
-      {data.map((job) => {
-        return <Photosnap key={job.id} {...job} />;
+      {jobs.map((job) => {
+        return <JobListing key={job.id} filter={filter} {...job} />
       })}
     </div>
-  );
+  )
 }
 
-export default App;
+
+export default App
