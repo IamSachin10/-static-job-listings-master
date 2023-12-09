@@ -53,3 +53,31 @@
       )}
 
 ```
+
+```jsx
+
+
+      <div className=" inline-grid grid-flow-col bg-white h-[15vh]">
+        {element.map((item, index) => (
+          <div
+            key={index}
+            className=" flex gap-2  items-center "
+          >
+            <button className="text-dark-cyan bg-light-grayish-bg font-fw-700 w-8 h-4">
+              {item}
+              {item && (
+                <span
+                  className="cursor-pointer  bg-dark-cyan text-light-grayish-bg w-8 h-4 font-fw-700"
+                  onClick={() => clearElement(index)}
+                >
+                  X
+                </span>
+              )}
+            </button>
+          </div>
+        ))}
+        {
+        element.length > 0 && (<button className="font-fw-700 text-grayish-cyan" onClick={clearButtons}>clear</button>)
+        }
+      </div>
+```
